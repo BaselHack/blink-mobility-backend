@@ -33,7 +33,6 @@
 package org.blinkm.blinkapp;
 
 
-import org.blinkm.blinkapp.model.Ride;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.stereotype.Component;
 

@@ -30,7 +30,7 @@
  * Any modifications to this file must keep this entire header
  * intact.
  */
-package org.blinkm.blinkapp.model;
+package org.blinkm.blinkapp;
 
 
 import org.springframework.data.annotation.Id;

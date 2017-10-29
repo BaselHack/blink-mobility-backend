@@ -32,7 +32,6 @@
  */
 package org.blinkm.blinkapp;
 
-import org.blinkm.blinkapp.model.Ride;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 
 public interface RideRepository extends ReactiveMongoRepository<Ride, String> {
