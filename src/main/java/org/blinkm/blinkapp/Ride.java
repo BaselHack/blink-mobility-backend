@@ -47,6 +47,7 @@ public class Ride {
     private String fromAddress;
     private String toAddress;
     private String contactPhone;
+    private String volunteerContactPhone;
     private String status;
     private Long   time;
     private String volunteer;
