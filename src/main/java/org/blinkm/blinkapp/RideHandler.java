@@ -52,7 +52,7 @@ public class RideHandler {
     
     public Mono<ServerResponse> createRide(ServerRequest request) {
         return request.bodyToMono(Ride.class)
-                .flatMap(ride -> rideRepository.insert(ride))
+                .flatMap(ride -> rideRepository.save(ride))
                 .flatMap(savedRide -> ServerResponse.ok().body(fromObject(savedRide)))
                 .switchIfEmpty(ServerResponse.badRequest().build());
 

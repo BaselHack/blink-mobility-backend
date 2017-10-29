@@ -33,16 +33,12 @@
 package org.blinkm.blinkapp;
 
 
-import org.springframework.data.annotation.Id;
-
 import lombok.Builder;
 import lombok.Value;
 
 @Value
 @Builder
 public class Ride {
-
-    @Id
     private String rideId;
     private String fromAddress;
     private String toAddress;

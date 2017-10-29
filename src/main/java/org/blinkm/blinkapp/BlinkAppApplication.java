@@ -40,10 +40,10 @@ public class BlinkAppApplication {
 		RideHandler handler = new RideHandler(this.rideRepository);
 
 		return route(
-				GET("/rides").and(accept(APPLICATION_JSON)), handler::listRides).andRoute(
-				GET("/rides/{rideId}").and(accept(APPLICATION_JSON)), handler::listRide).andRoute(
-				POST("/rides").and(accept(APPLICATION_JSON)), handler::createRide).andRoute(
-				PUT("/rides/{rideId}").and(accept(APPLICATION_JSON)), handler::modifyRide);
+				GET("/api/rides").and(accept(APPLICATION_JSON)), handler::listRides).andRoute(
+				GET("/api/rides/{rideId}").and(accept(APPLICATION_JSON)), handler::listRide).andRoute(
+				POST("/api/rides").and(accept(APPLICATION_JSON)), handler::createRide).andRoute(
+				PUT("/api/rides/{rideId}").and(accept(APPLICATION_JSON)), handler::modifyRide);
 	}
 
 
@@ -62,5 +62,6 @@ public class BlinkAppApplication {
 				.filter(corsWebFilter)
 				.build();
 	}
+
 	
 }

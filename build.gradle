@@ -32,8 +32,6 @@ repositories {
 dependencies {
 	compileOnly 'org.projectlombok:lombok:1.16.18'
 	compile('org.springframework.boot:spring-boot-starter-webflux')
-	compile('org.springframework.boot:spring-boot-starter-data-mongodb-reactive')
-	compile("org.mongodb:mongo-java-driver:3.5.0")
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile('io.projectreactor:reactor-test')
 }

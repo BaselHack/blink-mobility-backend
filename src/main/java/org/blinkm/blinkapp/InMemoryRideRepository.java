@@ -33,17 +33,37 @@
 package org.blinkm.blinkapp;
 
 
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
+import org.springframework.stereotype.Repository;
+
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-public interface RideRepository {
+@Repository
+public class InMemoryRideRepository implements RideRepository{
 
-    // todo : Use Mono<Ride> as input
-    Mono<Ride> save(Ride ride);
+    private final Map<String, Ride> rides = new ConcurrentHashMap<>();
 
-    Mono<Ride> findById(String rideId);
+    @Override
+    public Mono<Ride> save(Ride ride) {
+        rides.put(ride.getRideId(), ride);
+        return Mono.just(rides.get(ride.getRideId()));
+    }
 
-    Flux<Ride> findAll();
+    @Override
+    public Mono<Ride> findById(String rideId) {
+        return Mono.justOrEmpty(rides.get(rideId));
+    }
 
-    void deleteAll();
+    @Override
+    public Flux<Ride> findAll() {
+        return Flux.fromIterable(this.rides.values());
+    }
+
+    @Override
+    public void deleteAll() {
+        this.rides.clear();
+    }
 }
